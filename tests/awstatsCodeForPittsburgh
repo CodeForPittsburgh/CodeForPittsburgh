@@ -1,0 +1,27 @@
+cd /usr/local/awstats/wwwroot/cgi-bin
+sudo perl awstats.pl -update -config=CodeForPittsburgh
+sudo perl awstats.pl -config=CodeForPittsburgh -output -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=alldomains -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.alldomains.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=allhosts -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.allhosts.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=lasthosts -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.lasthosts.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=unknownip -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.unknownip.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=alllogins -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.alllogins.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=lastlogins -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.lastlogins.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=allrobots -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.allrobots.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=lastrobots -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.lastrobots.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=urldetail -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.urldetail.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=urlentry -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.urlentry.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=urlexit -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.urlexit.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=browserdetail -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.browserdetail.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=osdetail -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.osdetail.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=unknownbrowser -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.unknownbrowser.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=unknownos -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.unknownos.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=refererse -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.refererse.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=refererpages -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.refererpages.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=keyphrases -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.keyphrases.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=keywords -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.keywords.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=errors404 -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.errors404.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=errors403 -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.errors403.html
+sudo perl awstats.pl -config=CodeForPittsburgh -output=downloads -staticlinks > /var/www/html/CodeForPittsburgh/awstats.CodeForPittsburgh.downloads.html
+
+

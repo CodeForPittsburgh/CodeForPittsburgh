@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Heat Map Selection</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="img/myicon.png">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <style>
+            html, body, #map-canvas {
+                height: 100%;
+                margin-left: 18px;
+                padding: 25px;
+            }
+            #panel {
+                position: absolute;
+                top: 5px;
+                z-index: 5;
+                background-color: red;
+                color: white;
+                padding: 5px;
+                border: 1px solid #999;
+            }
+            #info-box {
+                background-color: #eeeeee;
+                border: 2px solid black;
+                bottom: 125px;
+                height: 20px;
+                padding: 10px;
+                float:left;
+
+            }
+            #maptype {
+                float:left;
+            }
+            #helpinfo {
+                float:right;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="text-center">Pittsburgh Police Blotter Heat Map</h1>
+                <p>A heat map is a graphical representation of data where the individual values contained in a matrix are represented as colors. Date range from 1/1/15 to yesterday</p>
+            </div>
+        </div>
+
+        <br>
+        <div>
+            <p>You can select a Neighborhood, Council District or Police Zone.</p>
+            <p>The All Neighborhood option is not currently working as it is returning > 15000 rows the maximum for Heat Map Matrix.</p>
+
+            <form action="createHeatLatLng.php">
+                <select name="neighborhood">
+
+                    <option value="Allegheny Center">Allegheny Center</option>
+                    <option value="Allegheny West">Allegheny West</option>
+                    <option value="Allentown">Allentown</option>
+                    <option value="Arlington">Arlington</option>
+                    <option value="Arlington Heights">Arlington Heights</option>
+                    <option value="Banksville">Banksville</option>
+                    <option value="Bedford Dwellings">Bedford Dwellings</option>
+                    <option value="Beechview">Beechview</option>
+                    <option value="Beltzhoover">Beltzhoover</option>
+                    <option value="Bloomfield">Bloomfield</option>
+                    <option value="Bluff">Bluff</option>
+                    <option value="Bon Air">Bon Air</option>
+                    <option value="Brighton Heights">Brighton Heights</option>
+                    <option value="Brookline">Brookline</option>
+                    <option value="California-Kirkbride">California-Kirkbride</option>
+                    <option value="Carrick">Carrick</option>
+                    <option value="Central Business District">Central Business District</option>
+                    <option value="Central Lawrenceville">Central Lawrenceville</option>
+                    <option value="Central Northside">Central Northside</option>
+                    <option value="Central Oakland">Central Oakland</option>
+                    <option value="Chartiers City">Chartiers City</option>
+                    <option value="Chateau">Chateau</option>
+                    <option value="Crafton Heights">Crafton Heights</option>
+                    <option value="Crawford-Roberts">Crawford-Roberts</option>
+                    <option value="Duquesne Heights">Duquesne Heights</option>
+                    <option value="East Allegheny">East Allegheny</option>
+                    <option value="East Carnegie">East Carnegie</option>
+                    <option value="East Hills">East Hills</option>
+                    <option value="East Liberty">East Liberty</option>
+                    <option value="Elliott">Elliott</option>
+                    <option value="Esplen">Esplen</option>
+                    <option value="Fairywood">Fairywood</option>
+                    <option value="Fineview">Fineview</option>
+                    <option value="Friendship">Friendship</option>
+                    <option value="Garfield">Garfield</option>
+                    <option value="Glen Hazel">Glen Hazel</option>
+                    <option value="Golden Triangle/Civic Arena">Golden Triangle/Civic Arena</option>
+                    <option value="Greenfield">Greenfield</option>
+                    <option value="Hays">Hays</option>
+                    <option value="Hazelwood">Hazelwood</option>
+                    <option value="Highland Park">Highland Park</option>
+                    <option value="Homewood North">Homewood North</option>
+                    <option value="Homewood South">Homewood South</option>
+                    <option value="Homewood West">Homewood West</option>
+                    <option value="Knoxville">Knoxville</option>
+                    <option value="Larimer">Larimer</option>
+                    <option value="Lincoln-Lemington-Belmar">Lincoln-Lemington-Belmar</option>
+                    <option value="Lincoln Place">Lincoln Place</option>
+                    <option value="Lower Lawrenceville">Lower Lawrenceville</option>
+                    <option value="Manchester">Manchester</option>
+                    <option value="Marshall-Shadeland">Marshall-Shadeland</option>
+                    <option value="Middle Hill">Middle Hill</option>
+                    <option value="Morningside">Morningside</option>
+                    <option value="Mount Washington">Mount Washington</option>
+                    <option value="Mt. Oliver Boro">Mt. Oliver Boro</option>
+                    <option value="Mt. Oliver Neighborhood">Mt. Oliver Neighborhood</option>
+                    <option value="New Homestead">New Homestead</option>
+                    <option value="North Oakland">North Oakland</option>
+                    <option value="North Shore">North Shore</option>
+                    <option value="Northview Heights">Northview Heights</option>
+                    <option value="Oakwood">Oakwood</option>
+                    <option value="Outside City">Outside City</option>
+                    <option value="Outside County">Outside County</option>
+                    <option value="Outside State">Outside State</option>
+                    <option value="Overbrook">Overbrook</option>
+                    <option value="Perry North">Perry North</option>
+                    <option value="Perry South">Perry South</option>
+                    <option value="Point Breeze North">Point Breeze North</option>
+                    <option value="Point Breeze">Point Breeze</option>
+                    <option value="Polish Hill">Polish Hill</option>
+                    <option value="Regent Square">Regent Square</option>
+                    <option value="Ridgemont">Ridgemont</option>
+                    <option value="Shadyside">Shadyside</option>
+                    <option value="Sheraden">Sheraden</option>
+                    <option value="South Oakland">South Oakland</option>
+                    <option value="South Shore">South Shore</option>
+                    <option value="South Side Flats">South Side Flats</option>
+                    <option value="South Side Slopes">South Side Slopes</option>
+                    <option value="Spring Garden">Spring Garden</option>
+                    <option value="Spring Hill-City View">Spring Hill-City View</option>
+                    <option value="Squirrel Hill North">Squirrel Hill North</option>
+                    <option value="Squirrel Hill South">Squirrel Hill South</option>
+                    <option value="Stanton Heights">Stanton Heights</option>
+                    <option value="St. Clair">St. Clair</option>
+                    <option value="Strip District">Strip District</option>
+                    <option value="Summer Hill">Summer Hill</option>
+                    <option value="Swisshelm Park">Swisshelm Park</option>
+                    <option value="Terrace Village">Terrace Village</option>
+                    <option value="Troy Hill-Herrs Island">Troy Hill-Herrs Island</option>
+                    <option value="Upper Hill">Upper Hill</option>
+                    <option value="Upper Lawrenceville">Upper Lawrenceville</option>
+                    <option value="West End">West End</option>
+                    <option value="West Oakland">West Oakland</option>
+                    <option value="Westwood">Westwood</option>
+                    <option value="Windgap">Windgap</option>
+
+
+                </select>
+
+                <input type="submit">
+            </form>
+        </div>
+
+        <hr>
+        <div>
+            <p>You can select a Council District (1-9).</p>
+            <form action="createHeatLatLng.php">
+                <select name="CouncilDistrict">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+
+                <input type="submit">
+            </form>
+        </div>
+
+        <hr>
+        <div>
+            <p>You can select a Police Zone (1-6).</p>
+            <form action="createHeatLatLng.php">
+                <select name="PoliceZone">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+
+                <input type="submit">
+            </form>
+        </div>
+        <hr>
+    </body>
+</html>
